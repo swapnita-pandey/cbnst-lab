@@ -2,65 +2,72 @@
 #include <math.h>
 #define EPSILON 0.001
 
-double func (double x)
+float func (float x)
 {
     float y = (x*x*x) - (x*x) + 2;
+    //printf("%f\n",y);
     return y;
 }
 
-double bisection(float a, float b)
+void bisection(float a, float b)
 {
-    float c;
-    do
-    {
+    printf("%f %f", a,b);
+    float c=a;
+    
         if(func(a) * func(b) > 0)
         {
             printf("Incorrect Initial Guess\n");
-            break;
+            return;
+            //break;
         }
         else if(func(a) * func(b) == 0)
         {
-            printf("Root is either %d or %d\n", a, b);
+            printf("Root is either %f or %f\n", a, b);
             if(func(a) == 0)
             {
-                printf("Root is %d\n", a);
+                printf("Root is %f\n", a);
             }
             else
             {
-                printf("Root is %d\n", b);
+                printf("Root is %f\n", b);
             }
-            break;
+            return;
+           
         }
-        else
-        {
-            c = (a + b)/2;
-            printf("Root is %d\n", c);
-
-            if(func(a) * func(c) < 0)
+        printf("%f %f", a,b);
+        while((b-a) >= EPSILON){
+            //printf("%d %d", a,b);
+            c = (a + b)/2.0;
+            printf("Mid point is %f\n", c);
+            if(func(c) == 0.0)
+            {
+                printf("Root is %f\n", c);
+                break;
+            }
+            else if(func(a) * func(c) < 0)
             {
                 b = c;
                 //bisection(a,b);
             }
-            else if(func(b) * func(c) < 0)
+            else
             {
-                a = b;
+                a = c;
                 //bisection(a,b);
             }
-            else if(func(c) == 0)
-            {
-                printf("Root is %d\n", c);
-                break;
-            }
+            
+            
         }
-    }while(func(c) >= EPSILON);
+    printf("%f ", c);
 }
 
 int main()
 {
     float a, b;
-    printf("f(x) = x^3 - x^2 + 2\n);
+    printf("f(x) = x^3 - x^2 + 2\n");
     printf("Enter the interval (values of a and b): ");
-    scanf("%d %d", &a, &b);
-    bisection(a, b);
+    scanf("%f %f", &a, &b);
+    printf("%f %f", a,b);
+    //bisection(a, b);
+    bisection(-200, 300);
     return 0;
 }
