@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <math.h>
+#define EPSILON 0.001
+
+float func(float x)
+{
+    float y = (x * x * x) - (x * x) + 2;
+    return y;
+}
+
+float derivative(float x)
+{
+    float y = (3 * x * x) - (2 * x);
+    return y;
+}
+
+void raphson(float x)
+{
+    int count = 0;
+    float h = func(x) / derivative(x);
+    float xprev = 0.0;
+
+    while (x - xprev >= EPSILON || x - xprev <= -EPSILON)
+    {
+        count++;
+        printf("Iteration %d\n", count);
+        h = func(x) / derivative(x);
+        printf("f(x%d) = x%d - (f(%f)/f'(%f)) = %f\n", count, count - 1, x, x, func(x - h));
+
+        xprev = x;
+        x = x - h;
+    }
+
+    printf("Root is %f", x);
+}
+
+int main()
+{
+    float a, b, x;
+    printf("f(x) = x^3 - x^2 + 2\n");
+    printf("Input initial guess: ");
+    scanf("%f", &x);
+    printf("%f\n", x);
+    raphson(x);
+
+    return 0;
+}
