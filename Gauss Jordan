@@ -38,7 +38,7 @@ int main()
     }
     else if (A[1][1] == 0 && A[2][1] != 0 && A[3][1] == 0)
     {
-        printf("Invaid Input\n");
+        printf("Invalid Input\n");
     }
 
     printf("Augmented Matrix: \n");
