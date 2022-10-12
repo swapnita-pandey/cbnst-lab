@@ -1,0 +1,21 @@
+if(A[1][1] == 0)
+    {
+        int temp = 0;
+        for(int i = 2; i <= n; i++)
+        {
+            if (A[1][1] == 0 && A[i][1] != 0)
+            {
+                for (int j = 1; j <= n + 1; j++)
+                {
+                    temp = A[1][j];
+                    A[1][j] = A[i][j];
+                    A[i][j] = temp;
+                }
+                break;
+            }
+        }
+    }
+        else
+        {
+            printf("Invalid Input\n");
+        }
