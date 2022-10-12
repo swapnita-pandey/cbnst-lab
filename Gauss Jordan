@@ -1,0 +1,78 @@
+#include <stdio.h>
+int main()
+{
+    int n;
+    printf("Enter the number of variables: ");
+    scanf("%d", &n);
+    float A[n][n + 1];
+    float x[n + 1];
+
+    printf("Enter the elements of augmented matrix row-wise:\n");
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= (n + 1); j++)
+        {
+            scanf("%f", &A[i][j]);
+        }
+    }
+    printf("\n");
+
+    int temp = 0;
+    if (A[1][1] == 0 && A[2][1] != 0)
+    {
+        for (int j = 1; j <= n + 1; j++)
+        {
+            temp = A[1][j];
+            A[1][j] = A[2][j];
+            A[2][j] = temp;
+        }
+    }
+    else if (A[1][1] == 0 && A[1][1] != 0)
+    {
+        for (int j = 1; j <= n + 1; j++)
+        {
+            temp = A[1][j];
+            A[1][j] = A[3][j];
+            A[3][j] = temp;
+        }
+    }
+    else if (A[1][1] == 0 && A[2][1] != 0 && A[3][1] == 0)
+    {
+        printf("Invaid Input\n");
+    }
+
+    printf("Augmented Matrix: \n");
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= n + 1; j++)
+        {
+            printf("%f ", A[i][j]);
+        }
+        printf("\n");
+    }
+
+    for(int j = 1; j <= n; j++)
+    {
+        for(int i = 1; i <= n; i++)
+        {
+            if(i != j)
+            {
+                float c = A[i][j]/A[j][j];
+                for(int k = 1; k <= n+1; k++)
+                {
+                    A[i][k] = A[i][k] - c*A[j][k];
+                }
+            }
+        }
+    }
+
+    printf("\nThe solution is:");
+    for (int i = 1; i <= n; i++)
+    {
+        x[i] = A[i][n+1]/A[i][i];
+        printf("\n%d %f", i, x[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
