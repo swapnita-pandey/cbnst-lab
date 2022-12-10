@@ -1,0 +1,26 @@
+#include<stdio.h>
+float fun(float x,float y)
+{
+    return (x + y + x * y);
+}
+
+void euler(float x0, float y, float h, float x)
+{
+    float temp = 0;
+    printf(" \nx \t y \n");
+    while (x0 < x) {
+        temp = y;
+        y = y + h * fun(x0, y);
+        x0 = x0 + h;
+        printf("%f \t %f \n", x0, y);
+    }
+}
+int main()
+{
+    float x0, y0, h, x;
+
+    printf("Enter x0, y0, h, xn: ");
+    scanf("%f %f %f %f", &x0, &y0, &h, &x);
+
+    euler(x0, y0, h, x);
+}
