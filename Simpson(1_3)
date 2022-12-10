@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <math.h>
+
+// Function to calculate f(x)
+float func(float x)
+{
+	return log(x);
+}
+
+// Function for approximate integral
+float simpsons(float ll, float ul, int n)
+{
+	// Calculating the value of h
+	float h = (ul - ll) / n;
+
+    printf("Value of h: %f\n", h);
+
+	// Array for storing value of x and f(x)
+	float x[10], fx[10];
+
+	// Calculating values of x and f(x)
+    printf("x \t\t y\n");
+	for (int i = 0; i <= n; i++) {
+		x[i] = ll + i * h;
+		fx[i] = func(x[i]);
+        printf("%f \t %f\n", x[i], fx[i]);
+	}
+
+	// Calculating result
+	float res = 0;
+	for (int i = 0; i <= n; i++) {
+		if (i == 0 || i == n)
+			res += fx[i];
+		else if (i % 2 != 0)
+			res += 4 * fx[i];
+		else
+			res += 2 * fx[i];
+	}
+	res = res * (h / 3);
+	return res;
+}
+
+// Driver program
+int main()
+{
+    float lower_limit, upper_limit;
+    int n; // Number of interval
+    printf("Enter the lower limit, upper limit, number of intervals: ");
+    scanf("%f %f %d", &lower_limit, &upper_limit, &n);
+
+    printf("%f", simpsons(lower_limit, upper_limit, n));
+
+	return 0;
+}
