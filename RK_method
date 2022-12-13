@@ -1,6 +1,5 @@
 #include<stdio.h>
 
-// A sample differential equation "dy/dx = (x - y)/2"
 float dydx(float x, float y)
 {
 	return((x - y)/2);
@@ -28,6 +27,9 @@ float rungeKutta(float x0, float y0, float x, float h)
 
 		// Update next value of x
 		x0 = x0 + h;
+
+		printf("k1 = %f, k2 = %f, k3 = %f, k4 = %f\n", k1, k2, k3, k4);
+		printf("Updated values of x and y are %f, %f\n\n", x0, y);
 	}
 
 	return y;
@@ -39,6 +41,6 @@ void main()
     printf("Enter the values of x0, y, x, h: ");
     scanf("%f %f %f %f", &x0, &y, &x, &h);
 
-    printf("The value of y at x is : %f", rungeKutta(x0, y, x, h));
+    printf("The value of y at x is : %f\n", rungeKutta(x0, y, x, h));
 	return;
 }
