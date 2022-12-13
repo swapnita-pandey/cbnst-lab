@@ -26,8 +26,8 @@ int main()
 {
 	float x0, xn;   // Range of definite integral
 	int n;  // Number of grids. Higher value means more accuracy
-    printf("Enter the range of definite integral: ");
-    scanf("%f %f %d", &x0, &xn, &n);
+    	printf("Enter the range of definite integral: ");
+    	scanf("%f %f %d", &x0, &xn, &n);
 
 	printf("Value of integral is %6.4f\n", trapezoidal(x0, xn, n));
 	return 0;
