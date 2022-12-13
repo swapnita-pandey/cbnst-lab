@@ -12,10 +12,14 @@ float trapezoidal(float a, float b, float n)
 
 	// Computing sum of first and last terms in above formula
 	float s = y(a)+y(b);
+	printf("\n%f\n", (h/2)*s);
 
 	// Adding middle terms in above formula
 	for (int i = 1; i < n; i++)
+	{
 		s += 2*y(a+i*h);
+		printf("%f\n", (h/2)*s);
+	}
 
 	// h/2 indicates (b-a)/2n. Multiplying h/2
 	// with s.
@@ -26,9 +30,12 @@ int main()
 {
 	float x0, xn;   // Range of definite integral
 	int n;  // Number of grids. Higher value means more accuracy
-    	printf("Enter the range of definite integral: ");
-    	scanf("%f %f %d", &x0, &xn, &n);
+    printf("Enter the range of definite integral: ");
+    scanf("%f %f", &x0, &xn);
 
-	printf("Value of integral is %6.4f\n", trapezoidal(x0, xn, n));
+	printf("Enter the number of grids: ");
+    scanf("%d", &n);
+
+	printf("\nValue of integral is %6.4f\n", trapezoidal(x0, xn, n));
 	return 0;
 }
