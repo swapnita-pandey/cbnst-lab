@@ -7,13 +7,14 @@ float fun(float x,float y)
 void euler(float x0, float y, float h, float x)
 {
     float temp = 0;
-    printf(" \nx \t y \n");
+    printf(" \nx \t\t y \n");
     while (x0 < x) {
         temp = y;
         y = y + h * fun(x0, y);
         x0 = x0 + h;
         printf("%f \t %f \n", x0, y);
     }
+    printf("Approximate Solution at %f = %f", x0, y);
 }
 int main()
 {
