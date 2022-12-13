@@ -17,7 +17,7 @@ int main()
 	
 	printf("Enter interpolation point: ");
 	scanf("%f", &xp);
-
+	printf("\n");
 	for (i = 1; i <= n; i++)
 	{
 		p = 1;
@@ -29,9 +29,10 @@ int main()
 			}
 		}
 		yp = yp + p * y[i];
+		printf("%.3f\n", yp);
 	}
 
-	printf("Interpolated value at %.3f is %.3f", xp, yp);
+	printf("Interpolated value at %.3f is %.3f\n", xp, yp);
 
 	return 0;
 }
