@@ -1,23 +1,34 @@
 #include<stdio.h>
 
-float y(float x)
+float func(float x)
 {
 	return 1/(1+x*x);
 }
 
 // Function to evaluate the value of integral
-float trapezoidal(float a, float b, float n)
+float trapezoidal(float a, float b, int n)
 {
-	float h = (b-a)/n;
+    float h = (b-a)/n;
+    printf("Value of h: %f\n", h);
+
+    float x[n+1], y[n+1];       // n intervals = n+1 ordinates
+
+    for(int i = 0; i < n+1; i++)
+    {
+        x[i] = a + i * h;
+        y[i] = func(x[i]);
+    }
+    printf("%f %f", x[0], x[n]);
 
 	// Computing sum of first and last terms in above formula
-	float s = y(a)+y(b);
+	float s = y[0]+y[n];
 	printf("\n%f\n", (h/2)*s);
 
 	// Adding middle terms in above formula
 	for (int i = 1; i < n; i++)
 	{
-		s += 2*y(i);
+		//s += 2*y(a+i*h);
+		s += 2*y[i];
 		printf("%f\n", (h/2)*s);
 	}
 
@@ -30,11 +41,11 @@ int main()
 {
 	float x0, xn;   // Range of definite integral
 	int n;  // Number of grids. Higher value means more accuracy
-    	printf("Enter the range of definite integral: ");
-    	scanf("%f %f", &x0, &xn);
+        printf("Enter the range of definite integral: ");
+        scanf("%f %f", &x0, &xn);
 
 	printf("Enter the number of grids: ");
-    	scanf("%d", &n);
+        scanf("%d", &n);
 
 	printf("\nValue of integral is %6.4f\n", trapezoidal(x0, xn, n));
 	return 0;
