@@ -14,7 +14,7 @@ float rungeKutta(float x0, float y0, float x, float h)
 
 	// Iterate for number of iterations
 	float y = y0;
-	for (int i = 1; i <= n; i++)
+	for (int i = 0; i < n; i++)
 	{
 		// Apply Runge Kutta Formulas to find next value of y
 		k1 = h * dydx(x0, y);
