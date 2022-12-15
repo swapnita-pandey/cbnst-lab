@@ -40,7 +40,6 @@ float simpsons(float ll, float ul, int n)
 	return res;
 }
 
-// Driver program
 int main()
 {
     float lower_limit, upper_limit;
