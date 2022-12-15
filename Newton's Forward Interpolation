@@ -30,9 +30,9 @@ int main()
     {
         scanf("%d", &x[i]);
     }
-	
-	// y[][] is used for difference table with y[][0] used for input
-	float y[n][n];
+
+    // y[][] is used for difference table with y[][0] used for input
+    float y[n][n];
     printf("Enter the values of y: ");
     for(int i = 0; i < n; i++)
     {
