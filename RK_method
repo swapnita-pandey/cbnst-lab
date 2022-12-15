@@ -38,9 +38,9 @@ float rungeKutta(float x0, float y0, float x, float h)
 void main()
 {
 	float x0, y, x, h;
-    printf("Enter the values of x0, y, x, h: ");
-    scanf("%f %f %f %f", &x0, &y, &x, &h);
+        printf("Enter the values of x0, y, x, h: ");
+        scanf("%f %f %f %f", &x0, &y, &x, &h);
 
-    printf("The value of y at x is : %f\n", rungeKutta(x0, y, x, h));
+        printf("The value of y at x is : %f\n", rungeKutta(x0, y, x, h));
 	return;
 }
