@@ -7,7 +7,7 @@ int main()
 	printf("Enter the number of data points: ");
 	scanf("%d", &n);
 
-	float x[n], y[n], xp, yp = 0, p;
+	float x[n], y[n];
 
 	printf("Enter the values of x and y:\n");
 	for (i = 1; i <= n; i++)
@@ -15,12 +15,14 @@ int main()
 		scanf("%f %f", &x[i], &y[i]);
 	}
 	
+	int xp, yp = 0;
 	printf("Enter interpolation point: ");
 	scanf("%f", &xp);
 	printf("\n");
+	
 	for (i = 1; i <= n; i++)
 	{
-		p = 1;
+		int p = 1;
 		for (j = 1; j <= n; j++)
 		{
 			if (i != j)
