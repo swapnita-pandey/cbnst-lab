@@ -60,7 +60,7 @@ int main()
 
 	// initializing u and sum
 	float sum = y[0][0];
-	float u = (value - x[0]) / (x[1] - x[0]);
+	float u = (value - x[0]) / (x[1] - x[0]);			//(x - x0)/h
 	for (int i = 1; i < n; i++) {
 		sum = sum + (u_cal(u, i) * y[0][i]) / fact(i);
 	}
