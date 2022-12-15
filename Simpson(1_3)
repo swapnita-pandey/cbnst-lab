@@ -12,28 +12,16 @@ float simpsons(float ll, float ul, int n)
 {
 	// Calculating the value of h
 	float h = (ul - ll) / n;
-
         printf("Value of h: %f\n", h);
 
-	// Array for storing value of x and f(x)
-	float x[n+1], y[n+1];
-
-	// Calculating values of x and f(x)
-        printf("x \t\t y\n");
-	for (int i = 0; i < n+1; i++) {
-		x[i] = ll + i * h;
-		y[i] = func(x[i]);
-        printf("%f \t %f\n", x[i], y[i]);
-	}
-
 	// Calculating result
-	float res = y[0] + y[n];
+	float res = func(ll) + func(ul);
 	for(int i = 1; i < n; i++)
 	{
 		if(i % 2 == 0)
-			res = res + 2 * y[i];
+			res = res + 2 * func(ll+i*h);
 		else
-			res = res + 4 * y[i];
+			res = res + 4 * func(ll+i*h);
 	}
 	res = res * (h / 3);
 	return res;
