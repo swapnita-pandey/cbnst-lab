@@ -36,11 +36,11 @@ void falsi(float a, float b)
         printf("f(x%d) = f(%f) = %f\n", count, c, func(c));
         printf("\n");
         if (func(c)==0.0)
-        break;
+            break;
         else if (func(c) * func(a) < 0)
-        b = c;
+            b = c;
         else
-        a = c;
+            a = c;
         count++;
     }
     printf("\nThe value of root is : %f\n", c);
