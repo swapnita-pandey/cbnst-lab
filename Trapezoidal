@@ -17,7 +17,7 @@ float trapezoidal(float a, float b, float n)
 	// Adding middle terms in above formula
 	for (int i = 1; i < n; i++)
 	{
-		s += 2*y(a+i*h);
+		s += 2*y(i);
 		printf("%f\n", (h/2)*s);
 	}
 
