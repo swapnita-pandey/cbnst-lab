@@ -46,10 +46,10 @@ int main()
     printf("Enter the lower limit and upper limit: ");
     scanf("%f %f", &lower_limit, &upper_limit);
 
-	printf("Enter the number of intervals: ");
+    printf("Enter the number of intervals: ");
     scanf("%d", &n);
 
     printf("The result is: %f\n", simpsons(lower_limit, upper_limit, n));
 
-	return 0;
+    return 0;
 }
